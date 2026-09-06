@@ -146,7 +146,7 @@ def main() -> None:
 
     api_key = os.environ.get("VOYAGE_API_KEY")
     if not api_key:
-        sys.exit("VOYAGE_API_KEY not set. PowerShell:  $env:VOYAGE_API_KEY = \"pa-....\"\n"
+        sys.exit("VOYAGE_API_KEY not set. PowerShell:  $env:VOYAGE_API_KEY = \"...\"\n"
                  "Keys: https://dashboard.voyageai.com/")
 
     rows = load_responses()

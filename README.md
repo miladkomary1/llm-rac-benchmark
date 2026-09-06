@@ -53,12 +53,17 @@ example `T1-02_C1_gemini_r3`.
 
 | Condition | Prompt composition | Intended effect |
 |---|---|---|
-| C1, zero-shot | Question only; no role, context or instructions | Baseline; mirrors typical non-expert use |
-| C2, structured-expert | Expert persona plus prescribed answer headings | Elicit more domain-appropriate, structured answers |
-| C3, rule-grounded | C2 framing plus explicit, topic-specific technical rules | Ground the answer in codified design knowledge |
+| C1, zero-shot | The question on its own; no role, context or instructions | Baseline; mirrors typical non-expert use |
+| C2, structured-expert | An expert persona, plus a request to state confidence, boundary conditions and open debates, and to close with a summary, the key assumptions and what remains uncertain | Elicit more domain-appropriate, structured answers |
+| C3, rule-grounded | The question preceded by a short list of explicit, topic-specific rules the answer must observe. C3 does not carry the C2 persona | Force the answer to disaggregate the distinctions that matter, rather than averaging over them |
 
-The exact C2 template and the C3 rule sets are in `scripts/build_prompts.py` and
-`config/conditions.yaml`.
+The exact wording of each condition is in `scripts/build_prompts.py`, and the C3 rule sets are in
+`config/conditions.yaml`. The C3 rules are expert-set requirements to treat cases separately, for
+example recycled concrete aggregate against mixed recycled aggregate, fine against coarse
+replacement, and basic against drying shrinkage. They are not quotations from a design code.
+
+The generated prompts are in `outputs/study/prompts.json` and are byte-identical to those
+submitted in the published collection; `scripts/build_prompts.py` reproduces that file exactly.
 
 ---
 
@@ -89,11 +94,18 @@ Each assistant is therefore run with its own history mechanism switched off:
 |---|---|---|
 | ChatGPT | Temporary Chat | entered through `chatgpt.com/?temporary-chat=true`; the conversation is not written to history and is not used for personalisation |
 | Gemini | Apps Activity off | a one-time setting in the Google account; conversations are not retained and not fed into later answers |
-| Claude | Fresh chat per prompt | `claude.ai/new` is opened for every prompt, so there is no cross-chat memory |
+| Claude | Incognito chat | `claude.ai/new` is opened for every prompt and the incognito control is switched on, so the conversation is not saved and there is no cross-chat memory |
 
 On top of that, the collector navigates to the entry URL before *every single prompt*, so no two
 prompts ever share a conversation thread, and each captured answer is checked against the prompt
 text so that an echoed prompt is never mistaken for an answer.
+
+The incognito control is located by its accessible label rather than by a fixed CSS selector,
+because these interfaces rebuild their markup frequently. If no such control is found the
+collector says so and continues, since a fresh chat per prompt already prevents cross-chat
+memory. In the published June 2026 collection Claude was run with a fresh chat per prompt; the
+incognito step was added afterwards and additionally prevents the conversation from being stored
+on the provider's side.
 
 This is stricter than a private or incognito browser window. An incognito window only discards
 state on your own machine; the settings above stop the provider from retaining the conversation
@@ -164,8 +176,10 @@ and `--min-interval` control this.
 ## Requirements
 
 * Python 3.10 or newer
-* Google Chrome
-* `pip install -r requirements.txt`, then `python -m playwright install chromium`
+* An installed Google Chrome. The collector drives Chrome itself (`channel="chrome"`), not
+  Playwright's bundled Chromium, because the assistants' sign-in flows expect a real Chrome.
+* `pip install -r requirements.txt`. Playwright is the only third-party dependency; everything
+  else is in the standard library. No browser download step is needed.
 * An embedding API key, for the repeatability analysis only
 
 ## Use
@@ -201,7 +215,8 @@ python scripts/analyse_repeatability.py
 
 `run_similarity.csv` holds one row per question, condition and assistant group: the three
 pairwise cosine similarities between the repetitions, their mean, the three word counts and the
-within-group word-count range.
+within-group word-count range. A companion `run_similarity_by_id.json` maps each response id to
+its group mean, for joining back onto individual responses.
 
 Set `RAC_RUN_DIR` to work in a different run folder under `outputs/` (default `study`).
 

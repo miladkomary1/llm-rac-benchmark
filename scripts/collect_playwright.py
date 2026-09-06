@@ -18,9 +18,9 @@ Usage (RAC_RUN_DIR selects the run folder under outputs/, default "study"):
   python scripts/collect_playwright.py run
   python scripts/collect_playwright.py run --rounds 1 --tools chatgpt --limit 3   # smoke test
 
-No-history mode is used throughout: ChatGPT Temporary Chat (via the URL), a fresh chat per
-prompt for Claude, and Gemini with "Apps Activity" switched off in the Google account
-(a one-time setting made in the browser).
+No-history mode is used throughout: ChatGPT Temporary Chat (entered via the URL), Claude
+incognito chat (a fresh chat is opened per prompt and its incognito control switched on), and
+Gemini with "Apps Activity" switched off in the Google account (a one-time browser setting).
 
 CAPTCHAs are never solved automatically: the script pauses for up to ~3 minutes so you can
 solve one by hand, then continues.
@@ -104,10 +104,11 @@ TOOLS = {
         "send": 'button[aria-label="Send message"]',
         "stop": '[data-is-streaming="true"]',
         "answer": "[data-is-streaming]",
-        "note": "Claude free (claude.ai), fresh chat",
+        "note": "Claude free (claude.ai), incognito chat",
         "skip_link": r"claude\.ai|anthropic\.com",
         "clean": "",
         "inject": "paste",
+        "incognito": True,   # claude.ai offers an incognito chat that is not saved to history
     },
 }
 
@@ -289,11 +290,37 @@ def enable_copilot_temporary(page):
         pass
 
 
+def enable_incognito(page) -> bool:
+    """Turn on the assistant's incognito / not-saved chat mode, if it exposes one.
+
+    The control is matched by its accessible label rather than by a fixed selector, because the
+    chat interfaces rebuild their markup often. Returns True when a control was switched on.
+    Safe to call unconditionally: it is a no-op when no such control is present.
+    """
+    try:
+        return bool(page.evaluate("""()=>{
+          const nodes=[...document.querySelectorAll('button,[role=switch],[role=menuitem],[role=menuitemcheckbox],a,label')];
+          const label=(e)=>((e.getAttribute('aria-label')||'')+' '+(e.getAttribute('title')||'')+' '+(e.textContent||'')).trim();
+          const t=nodes.find(e=>/incognito/i.test(label(e)));
+          if(!t) return false;
+          if(t.getAttribute('aria-checked')==='true' || t.getAttribute('aria-pressed')==='true') return true;
+          t.click();
+          return true;
+        }"""))
+    except Exception:
+        return False
+
+
 def collect_one(page, tool, qid, cond, rnd, prompt):
     T = TOOLS[tool]
     page.goto(T["url"], wait_until="domcontentloaded")
     page.wait_for_timeout(1500)
     dismiss_modals(page)
+    if T.get("incognito"):
+        if enable_incognito(page):
+            page.wait_for_timeout(800)
+        else:
+            print("    note: no incognito control found; the chat is still fresh per prompt", flush=True)
     if tool == "copilot":
         enable_copilot_temporary(page)
     if tool == "grok":
