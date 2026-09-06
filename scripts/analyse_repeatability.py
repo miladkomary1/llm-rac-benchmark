@@ -110,7 +110,7 @@ def voyage_embed(texts: list[str], api_key: str, model: str = VOYAGE_MODEL,
                 msg = e.read().decode("utf-8", "ignore")
                 if e.code == 429 and "payment method" in msg and min_interval < 60:
                     min_interval = 60.0  # free tier: throttle to ~1 req/min for the rest
-                    print("  ! free-tier rate limit — switching to slow mode (~1 request/min)")
+                    print("  ! free-tier rate limit; switching to slow mode (~1 request/min)")
                 if e.code in (429, 500, 502, 503) and attempt < 9:
                     time.sleep(65 if e.code == 429 else 2 ** attempt)  # clear the 1-min rolling window
                     continue
@@ -151,7 +151,7 @@ def main() -> None:
 
     rows = load_responses()
     if not rows:
-        sys.exit(f"No responses in {CAPTURED} — collect first.")
+        sys.exit(f"No responses in {CAPTURED}; run the collection first.")
     if args.tools:
         keep = set(args.tools.split(","))
         rows = [r for r in rows if r["tool"] in keep]

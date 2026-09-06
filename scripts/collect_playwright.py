@@ -206,7 +206,7 @@ def wait_stable(page, T, prompt="", max_s=130):
         page.wait_for_timeout(2000)
         dismiss_modals(page)
         if has_captcha(page):
-            print("    CAPTCHA — pausing up to 180s for manual solve...", flush=True)
+            print("    CAPTCHA detected; pausing up to 180s for a manual solve...", flush=True)
             ct = time.time()
             while has_captcha(page) and time.time() - ct < 180:
                 page.wait_for_timeout(3000)
@@ -271,7 +271,7 @@ def save(rid, qid, cond, tool, rnd, prompt, ext):
         'ol{padding-left:20px}</style></head><body>'
         f'<h1>{rid}</h1><div class="kv">Tool: <b>{tool}</b> | Question: <b>{qid}</b> ({TOPIC[qid.split("-")[0]]}) | '
         f'Condition: <b>{cond}</b> | Round: <b>{rnd}</b> | Words: <b>{wc}</b><br>Model/setup: {TOOLS[tool]["note"]} '
-        f'— fresh no-memory chat — {now}</div>'
+        f'(fresh no-memory chat) {now}</div>'
         f'<div class="sec">Prompt sent</div><div class="prompt">{htmllib.escape(prompt)}</div>'
         f'<div class="sec">Model answer (verbatim)</div><div class="answer">{ext["html"]}</div>'
         f'<div class="sec">Sources / references</div><ol>{refs_li}</ol></body></html>')
