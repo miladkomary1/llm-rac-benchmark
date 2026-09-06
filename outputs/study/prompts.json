@@ -1,0 +1,92 @@
+[
+  {
+    "question_id": "T1-01",
+    "condition": "C1",
+    "prompt": "Does using recycled aggregates affect the shrinkage of concrete?"
+  },
+  {
+    "question_id": "T1-01",
+    "condition": "C2",
+    "prompt": "You are a senior concrete-materials and structures expert advising on recycled aggregate concrete (RAC). Answer precisely. Explicitly state your confidence, the boundary conditions under which your answer holds, and any open debates.\n\nQuestion:\nDoes using recycled aggregates affect the shrinkage of concrete?\n\nEnd with: (a) a one-line summary, (b) key assumptions, (c) what remains uncertain."
+  },
+  {
+    "question_id": "T1-01",
+    "condition": "C3",
+    "prompt": "Apply these established findings when answering:\n- Comment separately for recycled concrete aggregate and mixed recycled aggregate use.\n- Comment separately for fine, coarse and fine and coarse recycled aggregate inclusion.\n- Comment separately for basic/autogenous and drying shrinkage.\n\nNow answer:\nDoes using recycled aggregates affect the shrinkage of concrete?"
+  },
+  {
+    "question_id": "T1-02",
+    "condition": "C1",
+    "prompt": "Summarize the main factors controlling RAC shrinkage, including aggregate quality, replacement ratio, strength, and curing conditions."
+  },
+  {
+    "question_id": "T1-02",
+    "condition": "C2",
+    "prompt": "You are a senior concrete-materials and structures expert advising on recycled aggregate concrete (RAC). Answer precisely. Explicitly state your confidence, the boundary conditions under which your answer holds, and any open debates.\n\nQuestion:\nSummarize the main factors controlling RAC shrinkage, including aggregate quality, replacement ratio, strength, and curing conditions.\n\nEnd with: (a) a one-line summary, (b) key assumptions, (c) what remains uncertain."
+  },
+  {
+    "question_id": "T1-02",
+    "condition": "C3",
+    "prompt": "Apply these established findings when answering:\n- Comment separately for recycled concrete aggregate and mixed recycled aggregate use.\n- Comment separately for fine, coarse and fine and coarse recycled aggregate inclusion.\n- Comment separately for basic/autogenous and drying shrinkage.\n\nNow answer:\nSummarize the main factors controlling RAC shrinkage, including aggregate quality, replacement ratio, strength, and curing conditions."
+  },
+  {
+    "question_id": "T1-03",
+    "condition": "C1",
+    "prompt": "How can the different RAC shrinkage be taken into account in design and design codes such as the fib Model Code 2020 and Eurocode 2?"
+  },
+  {
+    "question_id": "T1-03",
+    "condition": "C2",
+    "prompt": "You are a senior concrete-materials and structures expert advising on recycled aggregate concrete (RAC). Answer precisely. Explicitly state your confidence, the boundary conditions under which your answer holds, and any open debates.\n\nQuestion:\nHow can the different RAC shrinkage be taken into account in design and design codes such as the fib Model Code 2020 and Eurocode 2?\n\nEnd with: (a) a one-line summary, (b) key assumptions, (c) what remains uncertain."
+  },
+  {
+    "question_id": "T1-03",
+    "condition": "C3",
+    "prompt": "Apply these established findings when answering:\n- Comment separately for recycled concrete aggregate and mixed recycled aggregate use.\n- Comment separately for fine, coarse and fine and coarse recycled aggregate inclusion.\n- Comment separately for basic/autogenous and drying shrinkage.\n\nNow answer:\nHow can the different RAC shrinkage be taken into account in design and design codes such as the fib Model Code 2020 and Eurocode 2?"
+  },
+  {
+    "question_id": "T2-01",
+    "condition": "C1",
+    "prompt": "Does using recycled aggregates affect the shear resistance of reinforced concrete members?"
+  },
+  {
+    "question_id": "T2-01",
+    "condition": "C2",
+    "prompt": "You are a senior concrete-materials and structures expert advising on recycled aggregate concrete (RAC). Answer precisely. Explicitly state your confidence, the boundary conditions under which your answer holds, and any open debates.\n\nQuestion:\nDoes using recycled aggregates affect the shear resistance of reinforced concrete members?\n\nEnd with: (a) a one-line summary, (b) key assumptions, (c) what remains uncertain."
+  },
+  {
+    "question_id": "T2-01",
+    "condition": "C3",
+    "prompt": "Apply these established findings when answering:\n- Comment separately for recycled concrete aggregate and mixed recycled aggregate use.\n- Comment separately for fine, coarse and fine and coarse recycled aggregate inclusion.\n- Comment separately for reinforced concrete members without and with transverse reinforcement.\n\nNow answer:\nDoes using recycled aggregates affect the shear resistance of reinforced concrete members?"
+  },
+  {
+    "question_id": "T2-02",
+    "condition": "C1",
+    "prompt": "Summarize the main factors controlling shear strength of reinforced RAC members."
+  },
+  {
+    "question_id": "T2-02",
+    "condition": "C2",
+    "prompt": "You are a senior concrete-materials and structures expert advising on recycled aggregate concrete (RAC). Answer precisely. Explicitly state your confidence, the boundary conditions under which your answer holds, and any open debates.\n\nQuestion:\nSummarize the main factors controlling shear strength of reinforced RAC members.\n\nEnd with: (a) a one-line summary, (b) key assumptions, (c) what remains uncertain."
+  },
+  {
+    "question_id": "T2-02",
+    "condition": "C3",
+    "prompt": "Apply these established findings when answering:\n- Comment separately for recycled concrete aggregate and mixed recycled aggregate use.\n- Comment separately for fine, coarse and fine and coarse recycled aggregate inclusion.\n- Comment separately for reinforced concrete members without and with transverse reinforcement.\n\nNow answer:\nSummarize the main factors controlling shear strength of reinforced RAC members."
+  },
+  {
+    "question_id": "T2-03",
+    "condition": "C1",
+    "prompt": "How can different reinforced RAC member shear strength be taken into account in design and design codes such as the fib Model Code 2020 and Eurocode 2?"
+  },
+  {
+    "question_id": "T2-03",
+    "condition": "C2",
+    "prompt": "You are a senior concrete-materials and structures expert advising on recycled aggregate concrete (RAC). Answer precisely. Explicitly state your confidence, the boundary conditions under which your answer holds, and any open debates.\n\nQuestion:\nHow can different reinforced RAC member shear strength be taken into account in design and design codes such as the fib Model Code 2020 and Eurocode 2?\n\nEnd with: (a) a one-line summary, (b) key assumptions, (c) what remains uncertain."
+  },
+  {
+    "question_id": "T2-03",
+    "condition": "C3",
+    "prompt": "Apply these established findings when answering:\n- Comment separately for recycled concrete aggregate and mixed recycled aggregate use.\n- Comment separately for fine, coarse and fine and coarse recycled aggregate inclusion.\n- Comment separately for reinforced concrete members without and with transverse reinforcement.\n\nNow answer:\nHow can different reinforced RAC member shear strength be taken into account in design and design codes such as the fib Model Code 2020 and Eurocode 2?"
+  }
+]

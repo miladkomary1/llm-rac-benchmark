@@ -1,0 +1,30 @@
+{
+  "conditions": [
+    {
+      "id": "C1",
+      "name": "zero-shot",
+      "rules": {}
+    },
+    {
+      "id": "C2",
+      "name": "structured-expert",
+      "rules": {}
+    },
+    {
+      "id": "C3",
+      "name": "rule-grounded",
+      "rules": {
+        "T1": [
+          "Comment separately for recycled concrete aggregate and mixed recycled aggregate use.",
+          "Comment separately for fine, coarse and fine and coarse recycled aggregate inclusion.",
+          "Comment separately for basic/autogenous and drying shrinkage."
+        ],
+        "T2": [
+          "Comment separately for recycled concrete aggregate and mixed recycled aggregate use.",
+          "Comment separately for fine, coarse and fine and coarse recycled aggregate inclusion.",
+          "Comment separately for reinforced concrete members without and with transverse reinforcement."
+        ]
+      }
+    }
+  ]
+}

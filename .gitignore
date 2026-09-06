@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Editor / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Browser profiles and collected data (never commit these)
+outputs/**/.pw_profile/
+outputs/**/rac_html/
+outputs/**/captured.jsonl
+outputs/**/eval/
+
+# Credentials
+.env
+*.key

@@ -1,0 +1,44 @@
+[
+  {
+    "question_id": "T1-01",
+    "topic_id": "T1",
+    "topic": "shrinkage",
+    "task_type": "Introductory question",
+    "text": "Does using recycled aggregates affect the shrinkage of concrete?"
+  },
+  {
+    "question_id": "T1-02",
+    "topic_id": "T1",
+    "topic": "shrinkage",
+    "task_type": "Evidence synthesis",
+    "text": "Summarize the main factors controlling RAC shrinkage, including aggregate quality, replacement ratio, strength, and curing conditions."
+  },
+  {
+    "question_id": "T1-03",
+    "topic_id": "T1",
+    "topic": "shrinkage",
+    "task_type": "Design/model judgement",
+    "text": "How can the different RAC shrinkage be taken into account in design and design codes such as the fib Model Code 2020 and Eurocode 2?"
+  },
+  {
+    "question_id": "T2-01",
+    "topic_id": "T2",
+    "topic": "shear",
+    "task_type": "Introductory question",
+    "text": "Does using recycled aggregates affect the shear resistance of reinforced concrete members?"
+  },
+  {
+    "question_id": "T2-02",
+    "topic_id": "T2",
+    "topic": "shear",
+    "task_type": "Evidence synthesis",
+    "text": "Summarize the main factors controlling shear strength of reinforced RAC members."
+  },
+  {
+    "question_id": "T2-03",
+    "topic_id": "T2",
+    "topic": "shear",
+    "task_type": "Design/model judgement",
+    "text": "How can different reinforced RAC member shear strength be taken into account in design and design codes such as the fib Model Code 2020 and Eurocode 2?"
+  }
+]
